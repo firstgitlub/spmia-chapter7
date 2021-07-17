@@ -14,9 +14,14 @@ import java.util.Map;
 
 @SpringBootApplication
 @RestController
-@EnableResourceServer
-@EnableAuthorizationServer
+@EnableResourceServer  // 标注 认证服务器 也是一个 受保护的资源
+@EnableAuthorizationServer  // 注解用于告诉SpringCloud 该服务将作为OAuth2服务
 public class Application {
+
+    /**
+     * 此端点由 受保护服务调用 以确认OAuth2访问令牌
+     * 并检索 访问 受保护服务的 用户所分配的角色
+     */
     @RequestMapping(value = { "/user" }, produces = "application/json")
     public Map<String, Object> user(OAuth2Authentication user) {
         Map<String, Object> userInfo = new HashMap<>();

@@ -13,6 +13,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ *  主要用来从HTTP 首部解析出 验证令牌 和 关联ID
+ */
 @Component
 public class UserContextFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(UserContextFilter.class);
@@ -27,6 +30,8 @@ public class UserContextFilter implements Filter {
 
         UserContextHolder.getContext().setCorrelationId(httpServletRequest.getHeader(UserContext.CORRELATION_ID));
         UserContextHolder.getContext().setUserId(httpServletRequest.getHeader(UserContext.USER_ID));
+        // 许可证服务会将 token信息 传入到 组织服务中
+        // 组织服务中 会对其进行认证
         UserContextHolder.getContext().setAuthToken(httpServletRequest.getHeader(UserContext.AUTH_TOKEN));
         UserContextHolder.getContext().setOrgId(httpServletRequest.getHeader(UserContext.ORG_ID));
 

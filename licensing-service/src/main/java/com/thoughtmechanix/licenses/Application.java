@@ -24,7 +24,7 @@ import java.util.List;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@EnableResourceServer
+@EnableResourceServer // 该注解标明 该服务是需要受  认证服务器  保护的资源
 public class Application {
 
     @Autowired

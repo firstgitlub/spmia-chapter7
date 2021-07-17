@@ -60,21 +60,29 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-hystrix</artifactId>
     </dependency>
+
+      <!-- 引入通用Spring 和 Spring Cloud 安全库 -->
       <dependency>
           <groupId>org.springframework.cloud</groupId>
           <artifactId>spring-cloud-security</artifactId>
       </dependency>
 
+
+      <!-- OAuth2是一个基于令牌的 验证框架，但它并没有为如何定义其规范中的令牌提供任何标准，
+       为了矫正OAuth2令牌标准的缺陷，一个名为JSON Web Token(JWT)的新标准脱颖而出-->
+      <!-- 拉取了Spring OAuth2库 -->
       <dependency>
           <groupId>org.springframework.security.oauth</groupId>
           <artifactId>spring-security-oauth2</artifactId>
       </dependency>
-
-
+        <!-- 生成JWT串 -->
+      <!-- 受OAuth2保护的 验证服务 和 别的微服务，需要引入的Spring Security依赖项，以包含JWT OAuth2库 -->
       <dependency>
           <groupId>org.springframework.security</groupId>
           <artifactId>spring-security-jwt</artifactId>
       </dependency>
+
+
 
     <dependency>
       <groupId>com.h2database</groupId>

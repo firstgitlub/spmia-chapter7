@@ -181,6 +181,7 @@ public class SpecialRoutesFilter extends ZuulFilter {
 
         }
         try {
+            // 这里 就是 网关把  认证服务中需要的请求头信息  进行转发
             httpRequest.setHeaders(convertHeaders(headers));
             HttpResponse zuulResponse = forwardRequest(httpclient, httpHost, httpRequest);
 

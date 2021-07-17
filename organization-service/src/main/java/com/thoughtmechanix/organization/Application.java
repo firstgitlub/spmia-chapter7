@@ -13,7 +13,7 @@ import javax.servlet.Filter;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@EnableResourceServer
+@EnableResourceServer  // 这个注解用于 告诉spring cloud 和 spring security  它是一个受保护的资源
 public class Application {
     @Bean
     public Filter userContextFilter() {

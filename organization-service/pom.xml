@@ -78,14 +78,18 @@
     </dependency>
 
 
+      <!-- 核心的安全jar包 它包括框架代码 注解定义 和 spring cloud 中实现安全性的接口 -->
       <dependency>
           <groupId>org.springframework.cloud</groupId>
           <artifactId>spring-cloud-security</artifactId>
       </dependency>
+
+      <!-- 包含实现OAuth2验证服务所需的所有类 -->
       <dependency>
           <groupId>org.springframework.security.oauth</groupId>
           <artifactId>spring-security-oauth2</artifactId>
       </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-rsa</artifactId>

@@ -13,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class OrganizationRestTemplateClient {
+    /**
+     * OAuth2RestTemplate 是标准RestTemplate 的增强式 替代品，可处理OAuth2 访问令牌的传播
+     */
     @Autowired
     OAuth2RestTemplate restTemplate;
 
@@ -21,6 +24,9 @@ public class OrganizationRestTemplateClient {
     public Organization getOrganization(String organizationId){
         logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
 
+        /**
+         * 调用组织服务的方式 与 标准的 RestTemplate完全相同
+         */
         ResponseEntity<Organization> restExchange =
                 restTemplate.exchange(
                         "http://zuulserver:5555/api/organization/v1/organizations/{organizationId}",
